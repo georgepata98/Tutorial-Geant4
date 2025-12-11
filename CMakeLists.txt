@@ -14,14 +14,6 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 file(GLOB_RECURSE sources ${PROJECT_SOURCE_DIR}/*.cc)
 file(GLOB_RECURSE headers ${PROJECT_SOURCE_DIR}/*.hh)
 
-foreach(_file ${macros})
-    configure_file(
-        ${_file}
-        ${PROJECT_BINARY_DIR}/${_file}
-        COPYONLY
-    )
-endforeach()
-
 add_executable(sim main.cc ${sources} ${headers})
 target_link_libraries(sim ${Geant4_LIBRARIES})
 
